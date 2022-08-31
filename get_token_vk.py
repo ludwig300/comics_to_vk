@@ -1,6 +1,5 @@
 import requests
-import os
-from dotenv import load_dotenv
+import argparse
 
 
 def get_token_vk(client_id):
@@ -15,10 +14,16 @@ def get_token_vk(client_id):
     return response.url
 
 
+def createParser ():
+    parser = argparse.ArgumentParser(description='Get url for "access_token"')
+    parser.add_argument ('client_id', help='client_id can get after create app from https://vk.com/editapp?act=create')
+    return parser
+
+
 def main():
-    load_dotenv()
-    client_id = os.environ['CLIENT_ID']
-    print(get_token_vk(client_id))
+    parser = createParser()
+    namespace = parser.parse_args()
+    print(get_token_vk(namespace.client_id))
 
 
 if __name__ == '__main__':
