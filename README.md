@@ -32,7 +32,7 @@ In response you will receive an URL
 ## Setting environment variables
 * Create `.env` file in project directory and write:
 ```
-ACCESS_TOKEN = Your access token
+ACCESS_TOKEN=Your_access_token
 ```		
 ### Requirements
 * python-dotenv==0.20.0
