@@ -1,5 +1,6 @@
-import requests
 import argparse
+
+import requests
 
 
 def get_token_vk(client_id):
@@ -14,9 +15,9 @@ def get_token_vk(client_id):
     return response.url
 
 
-def createParser ():
+def createParser():
     parser = argparse.ArgumentParser(description='Get url for "access_token"')
-    parser.add_argument ('client_id', help='client_id can get after create app from https://vk.com/editapp?act=create')
+    parser.add_argument('client_id', help='client_id can get after create app from https://vk.com/editapp?act=create')
     return parser
 
 
