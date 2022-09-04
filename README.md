@@ -28,11 +28,18 @@ In response you will receive an URL
 
  3. Next in the address bar you will see your `access_token`, look like this `vk1.a._DDdsoQNAr6Lfm_ZBnCZuXzwkILfnx73JLH05gQFVwavJK_ewuUmJdVQR`
  
+- The next step, you need to get an `group_id`, do the following from `cmd:
+ ```
+ $ python get_group_id.py <access_token>
+ ```
+ `<access_token>` - this is positional argument `access_token` from previous step.
+ In response you will receive an `group_id`
  
 ## Setting environment variables
 * Create `.env` file in project directory and write:
 ```
 ACCESS_TOKEN=Your_access_token
+GROUP_ID=Your_group_id
 ```		
 ### Requirements
 * python-dotenv==0.20.0
