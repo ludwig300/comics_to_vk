@@ -16,7 +16,8 @@ def download_random_comic(comic_number):
         scheme='',
         allow_fragments=True
     )
-    file_name = os.path.basename(parsed_url[2])
+    scheme, netloc, path, *others =  parsed_url
+    file_name = os.path.basename(path)
     comment = response_json['alt']
     response_pic = requests.get(response_json['img'])
     response_pic.raise_for_status()
