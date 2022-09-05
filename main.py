@@ -10,15 +10,15 @@ def download_comic(comic_number):
     url = f'https://xkcd.com/{comic_number}/info.0.json'
     response = requests.get(url)
     response.raise_for_status()
-    json_response = response.json()
+    decoded_response = response.json()
     parsed_url = urllib.parse.urlsplit(
-        json_response['img'],
+        decoded_response['img'],
         scheme='',
         allow_fragments=True
     )
     file_name = os.path.basename(parsed_url.path)
-    comment = json_response['alt']
-    response_pic = requests.get(json_response['img'])
+    comment = decoded_response['alt']
+    response_pic = requests.get(decoded_response['img'])
     response_pic.raise_for_status()
     with open(file_name, 'wb') as file:
         file.write(response_pic.content)
@@ -44,8 +44,8 @@ def upload_image(upload_url, file_name):
         }
         response = requests.post(upload_url, files=files)
     response.raise_for_status()
-    json_response = response.json()
-    return json_response['server'], json_response['photo'], json_response['hash']
+    decoded_response = response.json()
+    return decoded_response['server'], decoded_response['photo'], decoded_response['hash']
 
 
 def save_wall_image(vk_token, server, photo, file_hash, group_id):
@@ -60,8 +60,8 @@ def save_wall_image(vk_token, server, photo, file_hash, group_id):
     }
     response = requests.post(url, params=payload)
     response.raise_for_status()
-    json_response = response.json()['response'][0]
-    return json_response['owner_id'], json_response['id']
+    decoded_response = response.json()['response'][0]
+    return decoded_response['owner_id'], decoded_response['id']
 
 
 def post_image(vk_token, owner_id, media_id, comment, group_id):
