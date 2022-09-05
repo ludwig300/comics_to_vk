@@ -15,14 +15,14 @@ def get_group_id(access_token):
     return response.json()['response']['items'][0]
 
 
-def createParser():
+def create_parser():
     parser = argparse.ArgumentParser(description='Get "group_id"')
     parser.add_argument('access_token', help='`access_token` can be obtained using `get_token_vk.py`')
     return parser
 
 
 def main():
-    parser = createParser()
+    parser = create_parser()
     args = parser.parse_args()
     print('group_id:', get_group_id(args.access_token))
 
