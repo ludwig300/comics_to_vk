@@ -23,8 +23,8 @@ def createParser():
 
 def main():
     parser = createParser()
-    namespace = parser.parse_args()
-    print('group_id:', get_group_id(namespace.access_token))
+    args = parser.parse_args()
+    print('group_id:', get_group_id(args.access_token))
 
 
 if __name__ == '__main__':

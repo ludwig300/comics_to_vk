@@ -23,8 +23,8 @@ def createParser():
 
 def main():
     parser = createParser()
-    namespace = parser.parse_args()
-    print(get_token_vk(namespace.client_id))
+    args = parser.parse_args()
+    print(get_token_vk(args.client_id))
 
 
 if __name__ == '__main__':
